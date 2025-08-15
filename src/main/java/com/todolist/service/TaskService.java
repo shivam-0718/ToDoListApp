@@ -20,4 +20,12 @@ public class TaskService implements ITaskService {
     public List<Task> getAllTasks() {
         return taskRepo.findAll();
     }
+
+    @Override
+    public void createTask(String title) {
+        Task task = new Task();
+        task.setTitle(title);
+        task.setCompleted(false);
+        taskRepo.save(task);
+    }
 }

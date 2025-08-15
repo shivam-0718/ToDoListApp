@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ITaskService {
     List<Task> getAllTasks();
+    void createTask(String title);
 }
