@@ -33,4 +33,12 @@ public class TaskService implements ITaskService {
     public void deleteTask(Long id) {
         taskRepo.deleteById(id);
     }
+
+    @Override
+    public void toggleTask(Long id) {
+        Task task = taskRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid Task Id"));
+        task.setCompleted(!task.getCompleted());
+        taskRepo.save(task);
+    }
 }
