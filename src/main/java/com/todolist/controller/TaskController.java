@@ -40,7 +40,7 @@ public class TaskController {
         return "redirect:/tasks";
     }
 
-    @DeleteMapping("/{id}/delete")
+    @GetMapping("/{id}/delete")
     public String deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
         return "redirect:/tasks";
