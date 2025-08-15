@@ -27,26 +27,26 @@ public class TaskController {
         return "redirect:/tasks";
     }
 
-    @GetMapping("tasks")
+    @GetMapping("/tasks")
     public String getTasks(Model model) {
         List<Task> tasks = service.getAllTasks();
         model.addAttribute("tasks", tasks);
         return "tasks";
     }
 
-    @PostMapping("new-task")
+    @PostMapping("/new-task")
     public String addTask(@RequestParam String title) {
         service.createTask(title);
         return "redirect:/tasks";
     }
 
-    @DeleteMapping("{id}/delete")
+    @DeleteMapping("/{id}/delete")
     public String deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
         return "redirect:/tasks";
     }
 
-    @GetMapping("{id}/toggle")
+    @GetMapping("/{id}/toggle")
     public String toggleTask(@PathVariable Long id) {
         service.toggleTask(id);
         return "redirect:/tasks";
