@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import java.util.List;
 
 @Controller
@@ -39,9 +40,16 @@ public class TaskController {
         return "redirect:/tasks";
     }
 
-    @GetMapping("{id}/delete")
+    @DeleteMapping("{id}/delete")
     public String deleteTask(@PathVariable Long id) {
         service.deleteTask(id);
-        return "tasks";
+        return "redirect:/tasks";
     }
+
+    @GetMapping("{id}/toggle")
+    public String toggleTask(@PathVariable Long id) {
+        service.toggleTask(id);
+        return "redirect:/tasks";
+    }
+
 }
