@@ -18,6 +18,6 @@ public class TaskService implements ITaskService {
 
     @Override
     public List<Task> getAllTasks() {
-        return List.of();
+        return taskRepo.findAll();
     }
 }
